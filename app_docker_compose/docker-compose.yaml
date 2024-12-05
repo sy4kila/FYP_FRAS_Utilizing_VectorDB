@@ -86,6 +86,7 @@ services:
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/store:/var/lib/mysql
       - ./app/static/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./app/my.cnf:/etc/mysql/my.cnf
     mem_limit: 512m
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
