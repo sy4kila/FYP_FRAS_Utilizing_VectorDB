@@ -10,7 +10,7 @@ import pymysql
 from pymysql.cursors import DictCursor
 from pymilvus import MilvusException
 
-from triton_server.inference_trtserver import run_inference
+from app.triton_server.inference_trtserver import run_inference
 from api.milvus import get_milvus_collec_conn
 from api.mysql import (insert_person_data_into_sql,
                        select_all_person_data_from_sql,
@@ -249,3 +249,4 @@ def recognize_person(
                 "message": f"detected face matches id: {person_id}",
                 "person_data": get_person_resp["person_data"]}
     return get_person_resp
+

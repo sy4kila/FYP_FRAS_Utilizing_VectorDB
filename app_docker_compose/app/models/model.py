@@ -1,14 +1,12 @@
 """
 data models for fastapi+uvicorn server
 """
-from datetime import date
-from enum import Enum
+from datetime import date, datetime
 from pydantic import BaseModel, ConfigDict
+from enum import Enum
 from collections import namedtuple
 
-
 Model = namedtuple('Model', ['name', 'dim'])
-
 
 class PersonModel(BaseModel):
     """
@@ -52,3 +50,16 @@ class ModelType(Model, Enum):
     FACE_REID = Model("face_reid_retail_0095", 256)
     FACENET = Model("facenet", 128)
     ARCFACE = Model("arcface_resnet18_110", 512)
+
+
+class AttendanceModel(BaseModel):
+    """
+    Attendance data model. Based on the attendance table schema
+    person_id: int = foreign key to person table, required
+    timestamp: datetime = time when attendance was marked, required
+    """
+    person_id: int
+    timestamp: datetime
+
+    class Config:
+        orm_mode = True

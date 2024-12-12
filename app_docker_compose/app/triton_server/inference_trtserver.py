@@ -1,6 +1,7 @@
 """
 Inference with tritonserver. The tritonserver must be runnign the background
 """
+
 from functools import partial
 from pathlib import Path
 from typing import Tuple
@@ -10,10 +11,13 @@ import os
 import numpy as np
 import cv2
 
-from triton_server.utils import FlagConfig
-from triton_server.utils import extract_data_from_media, get_client_and_model_metadata_config
-from triton_server.utils import parse_model_grpc, get_inference_responses
+from app.triton_server.utils import FlagConfig
+from app.triton_server.utils import extract_data_from_media, get_client_and_model_metadata_config
+from app.triton_server.utils import parse_model_grpc, get_inference_responses
 from utils.image import pad_resize_image, scale_coords, draw_bbox_on_image
+
+
+##from utils.image import pad_resize_image, scale_coords, draw_bbox_on_image
 
 
 FLAGS = FlagConfig()

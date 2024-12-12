@@ -15,3 +15,14 @@ CREATE TABLE IF NOT EXISTS person (
 
     PRIMARY KEY (ID)
 );
+
+-- create ATTENDANCE table
+CREATE TABLE IF NOT EXISTS attendance (
+    attendance_id INT AUTO_INCREMENT NOT NULL,  -- unique ID for each attendance record
+    person_id INT NOT NULL,                     -- references the person table
+    date DATE NOT NULL,                         -- date of attendance
+    time TIME NOT NULL,                         -- time of attendance
+    status VARCHAR(50) NOT NULL,                -- e.g., 'present', 'absent', 'late', etc.
+    PRIMARY KEY (attendance_id),
+    FOREIGN KEY (person_id) REFERENCES person(ID) -- ensures person exists in person table
+);

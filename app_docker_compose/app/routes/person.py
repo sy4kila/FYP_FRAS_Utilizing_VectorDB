@@ -4,9 +4,9 @@ Basic operations for faces
 from fastapi import APIRouter
 from fastapi import status, HTTPException
 
-from inference import (get_registered_person as get_registered_person_api, 
+from app.inference import (get_registered_person as get_registered_person_api, 
                        get_all_registered_person as get_all_registered_person_api)
-from inference import unregister_person as unregister_person_api
+from app.inference import unregister_person as unregister_person_api
 
 
 router = APIRouter()

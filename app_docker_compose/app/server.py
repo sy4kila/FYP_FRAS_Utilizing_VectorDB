@@ -12,7 +12,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
-from routes import person, recognize_person, register_person
+from app.routes import person, recognize_person, register_person, mark_attendance  # Add mark_attendance import
 from config import API_SERVER_PORT
 
 
@@ -39,6 +39,7 @@ app = get_application()
 app.include_router(person.router)
 app.include_router(recognize_person.router)
 app.include_router(register_person.router)
+app.include_router(mark_attendance.router)
 
 
 @app.middleware("http")
